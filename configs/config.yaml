@@ -1,0 +1,29 @@
+data:
+  raw_data_path: "data/raw/network_traffic.csv"
+  processed_data_path: "data/processed/"
+  batch_size: 128
+  num_workers: 4
+
+model:
+  input_dim: 100 # Adjust based on your data
+  latent_dims:
+    - 64
+    - 32
+  hidden_dims:
+    encoder: [128, 256]
+    decoder: [256, 128]
+  learning_rate: 0.001
+  kl_annealing:
+    enabled: true
+    epochs: 10
+
+training:
+  epochs: 50
+  log_interval: 10
+  checkpoint_path: "checkpoints/"
+
+logging:
+  log_dir: "runs/"
+
+anomaly_detection:
+  threshold: 0.05

@@ -1,0 +1,9 @@
+# docker/docker-compose.yml
+version: "3.8"
+
+services:
+  vae_anomaly_detection:
+    build: .
+    volumes:
+      - .:/app
+    command: python src/main.py --mode train --config configs/config.yaml
